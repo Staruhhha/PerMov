@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.newReleases -> makeCurrentFragment(releasesFragment)
                 R.id.topFilms -> makeCurrentFragment(topFragment)
             }
-            true 
+            true
         }
     }
 
@@ -31,4 +31,6 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.frameSw, fragment)
             commit()
         }
+
+
 }

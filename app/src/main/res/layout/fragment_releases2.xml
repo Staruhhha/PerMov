@@ -14,6 +14,12 @@
         android:text="Ожидаемые"
         android:layout_centerHorizontal="true"
         />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/releasesReView"
+        android:layout_marginTop="50sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        />
     </RelativeLayout>
 </FrameLayout>
