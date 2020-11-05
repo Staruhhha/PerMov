@@ -1,0 +1,2 @@
+rootProject.name='PerfMov'
+include ':app'
