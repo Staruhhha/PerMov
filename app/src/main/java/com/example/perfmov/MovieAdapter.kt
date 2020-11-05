@@ -10,8 +10,8 @@ class MovieAdapter(val movies: List<Movies>) : RecyclerView.Adapter<MovieAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.films_list, parent, false)
+                LayoutInflater.from(parent.context)
+                        .inflate(R.layout.films_list, parent, false)
         )
     }
 
@@ -25,5 +25,5 @@ class MovieAdapter(val movies: List<Movies>) : RecyclerView.Adapter<MovieAdapter
 
     }
 
-    class MovieViewHolder(val view:View) : RecyclerView.ViewHolder(view)
+    class MovieViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }

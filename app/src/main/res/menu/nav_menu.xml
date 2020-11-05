@@ -4,10 +4,9 @@
     <item
         android:id="@+id/newReleases"
         android:icon="@drawable/ic_new_releases"
-        android:title="Ожидаемые"/>
+        android:title="Ожидаемые" />
     <item
         android:id="@+id/topFilms"
         android:icon="@drawable/ic_top"
-        android:title="Топ рейтинг"
-        />
+        android:title="Топ рейтинг" />
 </menu>

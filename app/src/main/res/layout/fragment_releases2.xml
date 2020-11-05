@@ -8,18 +8,19 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ожидаемые"
-        android:layout_centerHorizontal="true"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/releasesReView"
-        android:layout_marginTop="50sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Ожидаемые" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/releasesReView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+
+            />
     </RelativeLayout>
 </FrameLayout>

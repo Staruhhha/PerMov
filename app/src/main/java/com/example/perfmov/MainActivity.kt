@@ -1,7 +1,7 @@
 package com.example.perfmov
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.perfmov.fragments.ReleasesFragment
 import com.example.perfmov.fragments.TopFragment
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         makeCurrentFragment(releasesFragment)
         bottom_navigation.setOnNavigationItemSelectedListener {
-            when (it.itemId){
+            when (it.itemId) {
                 R.id.newReleases -> makeCurrentFragment(releasesFragment)
                 R.id.topFilms -> makeCurrentFragment(topFragment)
             }
@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun makeCurrentFragment (fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frameSw, fragment)
-            commit()
-        }
+    private fun makeCurrentFragment(fragment: Fragment) =
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.frameSw, fragment)
+                commit()
+            }
 
 
 }
