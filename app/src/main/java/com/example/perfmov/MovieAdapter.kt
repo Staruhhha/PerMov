@@ -20,8 +20,8 @@ class MovieAdapter(val movies: List<Movies>) : RecyclerView.Adapter<MovieAdapter
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
         holder.view.tltFilm.text = movie.title
-        holder.view.rtFilm.text = movie.rating
-        holder.view.dtFilm.text = movie.date
+        holder.view.rtFilm.text = movie.vote_average
+        holder.view.dtFilm.text = movie.release_date
 
     }
 
