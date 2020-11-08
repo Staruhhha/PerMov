@@ -1,29 +1,52 @@
 package com.example.perfmov
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageSwitcher
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.films_list.view.*
 
-class MovieAdapter(val movies: List<Movies>) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(
+    private val context : Context?,
+    private val movies: List<Movies>,
+    val listener : (Movies) -> Unit
+): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    class MovieViewHolder (view:View) : RecyclerView.ViewHolder(view)  {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(
-                LayoutInflater.from(parent.context)
-                        .inflate(R.layout.films_list, parent, false)
-        )
+        val title = view.findViewById<TextView>(R.id.tltFilm)
+        val release_date = view.findViewById<TextView>(R.id.dtFilm)
+        val vote_average = view.findViewById<TextView>(R.id.rtFilm)
+        val poster_path = view.findViewById<ImageView>(R.id.imgFilm)
+        val original_title = view.findViewById<TextView>(R.id.orgTltFilm)
+        val vote_count = view.findViewById<TextView>(R.id.votes)
+
+        fun bindView(movies: Movies, listener: (Movies) -> Unit){
+            title.text = movies.title
+            release_date.text = "(${movies.release_date.substring(0,4)})"
+            vote_average.text = movies.vote_average.toString()
+            original_title.text = movies.original_title
+            vote_count.text = movies.vote_count
+            itemView.setOnClickListener { listener(movies) }
+
+        }
     }
 
-    override fun getItemCount() = movies.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder =
+        MovieViewHolder(LayoutInflater.from(context).inflate(R.layout.films_list, parent, false))
+
+    override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies[position]
-        holder.view.tltFilm.text = movie.title
-        holder.view.rtFilm.text = movie.vote_average
-        holder.view.dtFilm.text = movie.release_date
+        var currentItem = movies.get(position)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/${currentItem.poster_path}").fit().centerInside()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_foreground).fit().into(holder.poster_path)
 
+        holder.bindView(movies[position], listener)
     }
-
-    class MovieViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }
